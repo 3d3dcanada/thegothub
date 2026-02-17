@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  url           String   @unique
+  platform      String   // github, gitlab, sourceforge, bitbucket
+  stars         Int      @default(0)
+  forks         Int      @default(0)
+  language      String?
+  license       String?
+  lastUpdated   DateTime @default(now())
+  downloadedCount Int    @default(0)
+  avatarUrl     String?
+  owner         String
+  defaultBranch String   @default("main")
+  topics        String[] @default([])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  categories    ProjectCategory[]
+  downloads     Download[]
+
+  @@index([platform])
+  @@index([stars])
+  @@index([language])
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  icon      String?
+  color     String?
+  createdAt DateTime @default(now())
+
+  projects  ProjectCategory[]
+}
+
+model ProjectCategory {
+  projectId String
+  categoryId String
+
+  project   Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  category  Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, categoryId])
+}
+
+model Download {
+  id        String   @id @default(cuid())
+  projectId String
+  format    String   // zip, tarball
+  source    String   // software-heritage, platform-native
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+}
+
+model FeaturedProject {
+  id              String   @id @default(cuid())
+  name            String
+  owner           String
+  repo            String
+  description     String?
+  avatarUrl       String?
+  imageUrl        String?
+  website         String?
+  priority        Int      @default(0)
+  isActive        Boolean  @default(true)
+  isCorporate     Boolean  @default(false)
+  clickCount      Int      @default(0)
+  impressionCount Int      @default(0)
+  createdAt       DateTime @default(now())
+
+  @@index([priority])
+  @@index([isActive])
+}
+
+// Cache for project data - populated from GitHub API calls
+model CachedProject {
+  id          String   @id @default(cuid())
+  name        String
+  owner       String
+  description String?
+  url         String
+  platform    String   // "github", "gitlab", etc
+  stars       Int      @default(0)
+  forks       Int      @default(0)
+  language    String?
+  license     String?
+  avatarUrl   String?
+  topics      String   @default("[]") // JSON array as string
+  lastUpdated DateTime @default(now())
+  
+  // Metadata
+  cachedAt    DateTime @default(now())
+  viewCount   Int      @default(0)
+  
+  @@unique([platform, owner, name])
+  @@index([stars(sort: Desc)])
+  @@index([viewCount(sort: Asc)])
+}
