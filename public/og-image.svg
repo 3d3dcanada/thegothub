@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="0" x2="1200" y2="630" stroke="white"/>
+    <line x1="0" y1="630" x2="1200" y2="0" stroke="white"/>
+    <line x1="300" y1="0" x2="300" y2="630" stroke="white"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="white"/>
+    <line x1="900" y1="0" x2="900" y2="630" stroke="white"/>
+  </g>
+  
+  <!-- Main icon -->
+  <rect x="80" y="215" width="200" height="200" rx="40" fill="url(#accent)"/>
+  <path d="M130 295h120M130 355h80M130 415" stroke="white" stroke-width="h6016" stroke-linecap="round"/>
+  <circle cx="250" cy="415" r="30" fill="#10b981"/>
+  
+  <!-- Title -->
+  <text x="380" y="320" font-family="system-ui, sans-serif" font-size="72" font-weight="bold" fill="white">
+    TheGotHub
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="380" y="400" font-family="system-ui, sans-serif" font-size="32" fill="#a5b4fc">
+    Discover Open Source Projects
+  </text>
+  
+  <!-- Description -->
+  <text x="380" y="460" font-family="system-ui, sans-serif" font-size="24" fill="#818cf8">
+    GitHub • GitLab • SourceForge • & more
+  </text>
+  
+  <!-- Bottom badge -->
+  <rect x="80" y="500" width="200" height="60" rx="30" fill="rgba(255,255,255,0.1)"/>
+  <text x="180" y="540" font-family="system-ui, sans-serif" font-size="24" fill="white" text-anchor="middle">
+    Free • Open • Discover
+  </text>
+</svg>
