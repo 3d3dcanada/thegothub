@@ -27,8 +27,8 @@ export function CommunityBanner({ onApplyNow }: CommunityBannerProps) {
   
   return (
     <div className="relative -mx-4 px-4 rounded-t-3xl overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 50%, #fef3c7 100%)',
-      boxShadow: '0 4px 20px -4px rgba(245, 158, 11, 0.3)',
+      background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fffbeb 100%)',
+      boxShadow: '0 2px 8px -2px rgba(245, 158, 11, 0.2)',
     }}>
       {/* Dark mode */}
       <div className="hidden dark:block" style={{
@@ -161,8 +161,8 @@ export function TrendingBanner({ dateRange }: TrendingBannerProps) {
 
   return (
     <div className="relative -mx-4 px-4 rounded-t-3xl overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #ffe4e6 0%, #fce7f3 50%, #ffe4e6 100%)',
-      boxShadow: '0 4px 20px -4px rgba(244, 63, 94, 0.3)',
+      background: 'linear-gradient(135deg, #fff1f2 0%, #fdf2f8 50%, #fff1f2 100%)',
+      boxShadow: '0 2px 8px -2px rgba(244, 63, 94, 0.2)',
     }}>
       {/* Dark mode */}
       <div className="hidden dark:block" style={{
@@ -259,8 +259,8 @@ export function TrendingBanner({ dateRange }: TrendingBannerProps) {
 export function FreeToUseBanner() {
   return (
     <div className="relative -mx-4 px-4 rounded-t-3xl overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #d1fae5 0%, #ccfbf1 50%, #d1fae5 100%)',
-      boxShadow: '0 4px 20px -4px rgba(16, 185, 129, 0.3)',
+      background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 50%, #ecfdf5 100%)',
+      boxShadow: '0 2px 8px -2px rgba(16, 185, 129, 0.2)',
     }}>
       {/* Dark mode */}
       <div className="hidden dark:block" style={{
@@ -379,8 +379,8 @@ interface FeaturedBannerProps {
 export function FeaturedBanner({ title }: FeaturedBannerProps) {
   return (
     <div className="relative -mx-4 px-4 rounded-t-3xl overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #ede9fe 0%, #f3e8ff 50%, #ede9fe 100%)',
-      boxShadow: '0 4px 20px -4px rgba(139, 92, 246, 0.3)',
+      background: 'linear-gradient(135deg, #f5f3ff 0%, #faf5ff 50%, #f5f3ff 100%)',
+      boxShadow: '0 2px 8px -2px rgba(139, 92, 246, 0.2)',
     }}>
       {/* Dark mode */}
       <div className="hidden dark:block" style={{
