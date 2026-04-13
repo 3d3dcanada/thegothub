@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Header } from '@/components/layout/header';
 import { SearchAutocomplete } from '@/components/search/search-autocomplete';
-import { ProjectCard } from '@/components/project/project-card';
+import { ProjectCardV2 } from '@/components/project/project-card-v2';
 import { ProjectCardSkeleton } from '@/components/project/project-card-skeleton';
 import { SplashModal, useOnboarding } from '@/components/onboarding/splash-modal';
 import { TrendingUp, Star, Download, ArrowRight, Loader2, AlertCircle, AlertTriangle, Github, Heart, Coffee, Code2, Sparkles, Wrench, Target, Rocket, Lightbulb, Users, Zap, Flame, Activity, Gauge, BarChart2, Trophy, Crown, Medal, Award, Hexagon, Gift, CheckCircle, Package, Unlock, Clock } from 'lucide-react';
@@ -736,8 +736,8 @@ function HomeContent() {
             </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {trendingProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {trendingProjects.map((project, index) => (
+                <ProjectCardV2 key={project.id} project={project} index={index} />
               ))}
             </div>
           )}
@@ -836,8 +836,8 @@ function HomeContent() {
             </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {projects.map((project, index) => (
+                <ProjectCardV2 key={project.id} project={project} index={index} />
               ))}
             </div>
           )}
@@ -923,8 +923,8 @@ function HomeContent() {
           </div>
         ) : freeToUseProjects.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {freeToUseProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {freeToUseProjects.map((project, index) => (
+              <ProjectCardV2 key={project.id} project={project} index={index} />
             ))}
           </div>
         ) : (

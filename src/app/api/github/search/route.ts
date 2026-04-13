@@ -255,6 +255,8 @@ function setCache<T>(key: string, data: T): void {
 
 import { NextRequest, NextResponse } from 'next/server';
 import { githubApi, GitHubRepository } from '@/lib/github';
+import { caches } from '@/lib/cache';
+import { rateLimiters, getClientIdentifier } from '@/lib/rate-limit';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
